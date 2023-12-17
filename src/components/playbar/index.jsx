@@ -6,9 +6,8 @@ import { Pause, PlayArrow } from '@mui/icons-material';
 import trackTimeConverter from '../../utils/secondsToMMSS';
 
 const TimeControls = () => {
-	const { audio, currentTrack } =
-		useContext(AudioContext);
-			const { duration } = currentTrack;
+	const { audio, currentTrack } = useContext(AudioContext);
+	const { duration } = currentTrack;
 	const [currentTime, setCurrentTime] = useState(0);
 	const sliderCurrentTime = Math.round((currentTime / duration) * 100);
 
@@ -22,9 +21,9 @@ const TimeControls = () => {
 			setCurrentTime(audio.currentTime);
 		}, 1000);
 		return () => {
-			clearInterval(timeInterval)
-		}
-	}, []);
+			clearInterval(timeInterval);
+		};
+	});
 
 	return (
 		<>

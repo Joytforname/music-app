@@ -1,5 +1,5 @@
 import styles from './index.module.scss';
-import { Track } from '../../types';
+import { Track, AudioContextType } from '../../types';
 import { IconButton } from '@mui/material';
 import { PlayArrow, Pause } from '@mui/icons-material';
 import trackTimeConverter from '../../utils/secondsToMMSS';
@@ -7,9 +7,10 @@ import { AudioContext } from '../../context/audio-context';
 import { useContext } from 'react';
 import cn from 'classnames';
 
+
 const TrackElem = (track: Track) => {
 	const { preview, title, artists, duration } = track;
-	const { handleToggleAudio, currentTrack, isPlaying } =
+	const { handleToggleAudio, currentTrack, isPlaying }: AudioContextType =
 		useContext(AudioContext);
 	const isCurrentTrack = currentTrack.id === track.id;
 	const convertedDuration = trackTimeConverter(duration);
